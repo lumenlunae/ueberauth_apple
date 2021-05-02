@@ -79,6 +79,7 @@ defmodule Ueberauth.Strategy.Apple.OAuth do
     client
     |> put_param("client_secret", client.client_secret)
     |> put_header("Accept", "application/json")
+    |> put_header("content-type", "application/x-www-form-urlencoded")
     |> OAuth2.Strategy.AuthCode.get_token(params, headers)
   end
 
